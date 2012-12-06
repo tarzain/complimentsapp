@@ -20,6 +20,17 @@ Compliments::Application.configure do
   # Generate digests for assets URLs
   config.assets.digest = true
   
+  #Mail settings
+  ActionMailer::Base.smtp_settings = {
+    :user_name => "complimentsapp@gmail.com",
+    :password => "getmoney_getpaid",
+    :domain => "gmail.com",
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
+  
   #set host in mailer to localhost
   config.action_mailer.default_url_options = { :host => "localhost:3000" }
 
