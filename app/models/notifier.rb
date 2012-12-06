@@ -9,7 +9,6 @@ class Notifier < ActionMailer::Base
     )
   end
   def notif_email(user, message)
-    debugger
     mail( 
     :to => user.email,
     :subject => "You received an anonymous compliment!",

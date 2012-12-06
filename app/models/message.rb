@@ -4,7 +4,6 @@ class Message < ActiveRecord::Base
   belongs_to :user
   
   def is_valid_compliment
-    debugger
     if(body.empty?)
       errors.add(:body, "Body cannot be empty")
       false
