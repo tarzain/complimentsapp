@@ -17,7 +17,7 @@ Compliments::Application.configure do
   config.action_mailer.raise_delivery_errors = true
   
   #set host in mailer to localhost
-  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  config.action_mailer.default_url_options = { :host => "http://agile-cliffs-4997.herokuapp.com" }
   
   #Mail settings
   ActionMailer::Base.smtp_settings = {
@@ -48,4 +48,5 @@ Compliments::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
 end
