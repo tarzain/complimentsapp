@@ -11,11 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121205033435) do
+ActiveRecord::Schema.define(:version => 20121205215850) do
 
   create_table "messages", :force => true do |t|
     t.string   "body"
     t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "notifiers", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -25,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20121205033435) do
     t.string   "email"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "credits"
   end
 
 end

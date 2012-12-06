@@ -4,6 +4,9 @@ Compliments::Application.routes.draw do
   resources :users do
     resources :messages
   end
+  
+  match 'users/search'=>'users#search'
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

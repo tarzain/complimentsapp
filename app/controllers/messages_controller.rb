@@ -29,7 +29,9 @@ class MessagesController < ApplicationController
   # GET /messages/new.json
   def new
     @message = Message.new
-
+    if(session[:user_id]!=nil)
+      @user=User.find(session[:user_id])
+    end
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @message }
@@ -50,9 +52,14 @@ class MessagesController < ApplicationController
       params[:message][:user_id]=User.create(:email=>params[:email]).id
     end
     @message = Message.new(params[:message])
+    
 
     respond_to do |format|
       if @message.save
+        if(session[:user_id]!=nil)
+          User.find(session[:user_id]).credits+=1
+        end
+        Notifier.notif_email(@message.user, @message).deliver
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
         format.json { render json: @message, status: :created, location: @message }
       else

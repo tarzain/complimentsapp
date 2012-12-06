@@ -12,9 +12,23 @@ Compliments::Application.configure do
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
-
+  
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
+  
+  #set host in mailer to localhost
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  
+  #Mail settings
+  ActionMailer::Base.smtp_settings = {
+    :user_name => "complimentsapp@gmail.com",
+    :password => "getmoney_getpaid",
+    :domain => "gmail.com",
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log

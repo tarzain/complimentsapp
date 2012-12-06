@@ -1,9 +1,28 @@
 <p id="notice"><%= notice %></p>
+<p id="reason"><%= @reason %></p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Body</th>
+    </tr>
+  </thead>
+  <tbody>
+  	<% @messages.each do |message| %>
+    <tr>
+      <td><%= link_to message.body, message %></td>
+    </tr>
+    <% end %>
+    <tr>
+    	<td>
+    		<%= @hidden %> hidden compliments. Give someone else 2 compliments to see another one of yours
+    	</td>
+	</tr>
+  </tbody>
+</table>
 
-<p>
-  <b>Name:</b>
-  <%= @user.name %>
-</p>
+<br />
+
+<%= link_to 'New Message', new_message_path, :class=>'btn btn-success' %>
 
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
