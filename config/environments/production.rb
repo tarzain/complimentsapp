@@ -32,7 +32,7 @@ Compliments::Application.configure do
   }
   
   #set host in mailer to localhost
-  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  config.action_mailer.default_url_options = { :host => "http://agile-cliffs-4997.herokuapp.com" }
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
